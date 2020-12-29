@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+        <variable
+            name="signals"
+            type="com.hatem.digissquared.signal.model.SignalsModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/card_background"
+        >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TableRow android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rsrp"
+                    android:textColor="@color/title_color"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rsrq"
+                    android:textColor="@color/title_color"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sinr"
+                    android:textColor="@color/title_color"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <!--        ================== rsrp ================= -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rsrp_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp">
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:progressTint="@{signals.getRsrpColor(context)}"
+                        android:scaleY="30"
+                        androidProgress="@{signals.rsrp}"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(signals.rsrp)}"
+                        android:textColor="@color/grey"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:text="-20" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        ================== rsrq =================-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rsrq_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp">
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:progressTint="@{signals.getRsrqColor(context)}"
+                        android:scaleY="30"
+                        androidProgress="@{signals.rsrq}"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(signals.rsrq)}"
+                        android:textColor="@color/grey"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:text="-20" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        ================== sinr =================-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sinr_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:progressTint="@{signals.getSinrColor(context)}"
+                        android:scaleY="30"
+                        androidProgress="@{signals.sinr}"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(signals.sinr)}"
+                        android:textColor="@color/grey"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:text="-20" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </TableRow>
+        </TableLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
