@@ -80,20 +80,17 @@ data class SignalsModel(
         }
     }
 
-    @BindingAdapter("androidProgress")
-    fun getRsrpPercentage(progressBar:ProgressBar, rsrp:Float) {
-       progressBar.progress = ((rsrp - -140)/(-60 - -140)).toInt()
+    fun getRsrpPercentage():Int {
+       return  (((rsrp - (-140))/((-60) - -140))*100).toInt()
 //        no-start\ (end-start)
     }
 
-    @BindingAdapter("androidProgress")
-    fun getRsrqPercentage(progressBar:ProgressBar, rsrq:Float) {
-        progressBar.progress = ((rsrq- (-30))/(0 - -30)).toInt()
+    fun getRsrqPercentage():Int {
+        return (((rsrq- (-30))/(0 - -30))*100).toInt()
     }
 
-    @BindingAdapter("androidProgress")
-    fun getSinrPercentage(progressBar:ProgressBar, sinr:Float) {
-        progressBar.progress = ((sinr- (-10))/(30- -10)).toInt()
+    fun getSinrPercentage():Int {
+        return (((sinr- (-10))/(30- -10))*100).toInt()
     }
 
 }

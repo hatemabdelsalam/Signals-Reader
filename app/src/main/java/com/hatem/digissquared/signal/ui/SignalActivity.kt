@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.hatem.digissquared.R
+import com.hatem.digissquared.databinding.ActivitySignalBinding
 import com.hatem.digissquared.signal.adapter.TabsPagerAdapter
 import java.util.*
 
@@ -13,7 +14,7 @@ import java.util.*
 class SignalActivity : AppCompatActivity() {
 
     lateinit var signalViewModel: SignalViewModel
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivitySignalBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

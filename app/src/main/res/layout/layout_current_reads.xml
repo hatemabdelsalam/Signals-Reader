@@ -68,9 +68,9 @@
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-                        android:progressTint="@{signals.getRsrpColor(context)}"
                         android:scaleY="30"
-                        androidProgress="@{signals.rsrp}"
+                        android:progressTint="@{signals.getRsrpColor(context)}"
+                        android:progress="@{signals.rsrpPercentage}"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -99,7 +99,7 @@
                         android:layout_height="30dp"
                         android:progressTint="@{signals.getRsrqColor(context)}"
                         android:scaleY="30"
-                        androidProgress="@{signals.rsrq}"
+                        android:progress="@{signals.rsrqPercentage}"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -127,7 +127,7 @@
                         android:layout_height="30dp"
                         android:progressTint="@{signals.getSinrColor(context)}"
                         android:scaleY="30"
-                        androidProgress="@{signals.sinr}"
+                        android:progress="@{signals.sinrPercentage}"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
